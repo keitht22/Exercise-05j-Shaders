@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/spatial/force_field1.tres" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 1
+octaves = 6
+period = 60.0
+persistence = 0.116
+lacunarity = 1.25
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/base_color = Color( 0.54902, 0.913725, 0.603922, 1 )
+shader_param/near_far = Vector2( 0.1, 100 )
+shader_param/hexes_scale = 1.0
+shader_param/hex_tex = SubResource( 2 )

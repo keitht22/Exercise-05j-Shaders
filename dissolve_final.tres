@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/spatial/dissolve.shader" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+seed = 4
+octaves = 7
+period = 71.0
+persistence = 0.905
+lacunarity = 3.05
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/albedo = Color( 0, 0, 0, 1 )
+shader_param/emission_color = Color( 1, 1, 1, 1 )
+shader_param/emission_amount = 0.2
+shader_param/burn_size = 0.5
+shader_param/dissolve_amount = 1.0
+shader_param/dissolve_texture = SubResource( 2 )
